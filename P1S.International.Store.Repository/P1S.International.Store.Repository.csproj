@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2CFA2EBF-1481-4526-9F38-6C093D6A7FB9}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{A01C19F2-0D4D-4790-9F6D-9BEBC2A3F688}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>P1S.International.Store</RootNamespace>
-    <AssemblyName>P1S.International.Store</AssemblyName>
+    <RootNamespace>P1S.International.Store.Repository</RootNamespace>
+    <AssemblyName>P1S.International.Store.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.4.11\lib\net45\NLog.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,29 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssessmentExercise.cs" />
-    <Compile Include="ExampleBaskets\ShoppingBasket3.cs" />
-    <Compile Include="ExampleBaskets\ShoppingBasket2.cs" />
-    <Compile Include="ExampleBaskets\ShoppingBasket1.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Events\ProductRepositoryEventArgs.cs" />
+    <Compile Include="Events\ShoppingBasketEventArgs.cs" />
+    <Compile Include="Exceptions\InvalidBasketQuantityException.cs" />
+    <Compile Include="Exceptions\InvalidIdValueException.cs" />
+    <Compile Include="Exceptions\InvalidImportDutyValueException.cs" />
+    <Compile Include="Exceptions\InvalidNameValueException.cs" />
+    <Compile Include="Exceptions\InvalidSalesTaxValueException.cs" />
+    <Compile Include="Exceptions\InvalidUnitCostValueException.cs" />
+    <Compile Include="Models\BaseProduct.cs" />
+    <Compile Include="Models\Cashier.cs" />
+    <Compile Include="Models\DomesticProduct.cs" />
+    <Compile Include="Models\ImportedProduct.cs" />
+    <Compile Include="Models\ShoppingBasket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\P1S.International.Store.Repository\P1S.International.Store.Repository.csproj">
-      <Project>{a01c19f2-0d4d-4790-9f6d-9bebc2a3f688}</Project>
-      <Name>P1S.International.Store.Repository</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
