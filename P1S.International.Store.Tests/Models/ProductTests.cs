@@ -9,7 +9,7 @@ namespace P1S.International.Store.Tests.Models
     public class ProductTests
     {
         [TestMethod]
-        public void TestProductCreation()
+        public void ProductCreationTest()
         {
             var name = "Product Name";
             var unitCost = 18.99m;
@@ -23,7 +23,7 @@ namespace P1S.International.Store.Tests.Models
         }
 
         [TestMethod]
-        public void TestProductValidation()
+        public void ProductValidationTest()
         {
             try
             {
@@ -87,7 +87,7 @@ namespace P1S.International.Store.Tests.Models
         }
 
         [TestMethod]
-        public void TestSalesTaxRounding()
+        public void SalesTaxRoundingTest()
         {
             var product1 = new DomesticProduct(Guid.NewGuid(), "Product One", 18.99m, 0.10m, false);
             var expectedTaxes = 1.9m;

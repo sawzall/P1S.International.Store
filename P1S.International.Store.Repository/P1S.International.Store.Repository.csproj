@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,6 +49,7 @@
     <Compile Include="Exceptions\InvalidNameValueException.cs" />
     <Compile Include="Exceptions\InvalidSalesTaxValueException.cs" />
     <Compile Include="Exceptions\InvalidUnitCostValueException.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\BaseProduct.cs" />
     <Compile Include="Models\Cashier.cs" />
     <Compile Include="Models\DomesticProduct.cs" />

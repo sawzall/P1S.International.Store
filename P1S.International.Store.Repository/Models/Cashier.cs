@@ -30,6 +30,8 @@ namespace P1S.International.Store.Repository.Models
 
         #endregion Constructors
 
+        #region Methods
+
         /// <summary>
         /// Eventually this could do more, including notifying inventory 
         /// management of a change in quantity available for sale. For now,
@@ -81,5 +83,6 @@ namespace P1S.International.Store.Repository.Models
             return receipt.ToString();
         }
 
+        #endregion Methods
     }
 }

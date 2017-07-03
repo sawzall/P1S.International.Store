@@ -10,7 +10,7 @@ namespace P1S.International.Store.Tests.Repositories
     public class ProductRepositoryTests
     {
         [TestMethod]
-        public void TestBasicProductRepository()
+        public void BasicProductRepositoryTest()
         {
             var repo = new ProductRepository();
             Assert.IsInstanceOfType(repo, typeof(ProductRepository));
