@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace P1S.International.Store.Repository.Models
 {
@@ -56,8 +52,6 @@ namespace P1S.International.Store.Repository.Models
         {
             const string LINE = "\t{0} {1}: {2}";
             StringBuilder receipt = new StringBuilder();
-            decimal salesTax = 0m;
-            decimal totalCost = 0m;
 
             receipt.AppendLine(transactionId);
 
@@ -67,17 +61,14 @@ namespace P1S.International.Store.Repository.Models
                 var quantity = item.Value;
                 var lineCost = quantity * product.GetCost();
 
-                salesTax += quantity * product.GetTaxes();
-                totalCost += lineCost;
-
                 receipt.AppendFormat(LINE, quantity, product.Name, lineCost);
                 receipt.AppendLine();
             }
 
-            receipt.AppendFormat("\tSales Taxes: {0}", salesTax.ToString("F2", CultureInfo.CurrentCulture));
+            receipt.AppendFormat("\tSales Taxes: {0}", basket.TotalSalesTax().ToString("F2", CultureInfo.CurrentCulture));
             receipt.AppendLine();
 
-            receipt.AppendFormat("\tTotal: {0}", totalCost.ToString("F2", CultureInfo.CurrentCulture));
+            receipt.AppendFormat("\tTotal: {0}", basket.TotalCost().ToString("F2", CultureInfo.CurrentCulture));
             receipt.AppendLine();
 
             return receipt.ToString();

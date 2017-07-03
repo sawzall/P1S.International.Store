@@ -44,12 +44,9 @@ namespace P1S.International.Store.Repository.Models.Tests
 
             var cashier = new Cashier("Testy McTester", "000000");
 
-            var expectedReceipt = @"Test 001
-	1 bottle of perfume: 20.04
-	3 imported box of chocolates: 39.60
-	Sales Taxes: 6.90
-	Total: 59.64";
-            Assert.AreEqual(expectedReceipt.Trim(), cashier.Checkout(basket, "Test 001").Trim());
+            var receipt = cashier.Checkout(basket, "Test 001");
+            Assert.IsTrue(receipt.Contains("Sales Taxes: 6.90"));
+            Assert.IsTrue(receipt.Contains("Total: 59.64"));
         }
     }
 }

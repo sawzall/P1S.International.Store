@@ -2,10 +2,7 @@
 using P1S.International.Store.Repository.Exceptions;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace P1S.International.Store.Repository.Models
 {
@@ -107,7 +104,7 @@ namespace P1S.International.Store.Repository.Models
         {
             if (quantity <= 0)
             {
-                throw new InvalidBasketQuantityException(); 
+                throw new InvalidBasketQuantityException();
             }
             if (Contents.ContainsKey(product))
             {
@@ -134,6 +131,16 @@ namespace P1S.International.Store.Repository.Models
         public int TotalItems()
         {
             return Contents.Sum(p => p.Value);
+        }
+
+        public decimal TotalSalesTax()
+        {
+            return _contents.Sum(p => p.Value * p.Key.GetTaxes());
+        }
+
+        public decimal TotalCost()
+        {
+            return _contents.Sum(p => p.Value * p.Key.GetCost());
         }
 
         #endregion Methods
